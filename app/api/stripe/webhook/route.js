@@ -1,6 +1,8 @@
 import Stripe from 'stripe'
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
 
 export async function POST(req) {
   const body = await req.text()
@@ -31,8 +33,4 @@ export async function POST(req) {
   }
 
   return NextResponse.json({ received: true })
-}
-
-export const config = {
-  api: { bodyParser: false }
 }
